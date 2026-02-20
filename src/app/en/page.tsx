@@ -12,6 +12,9 @@ import styles from '../page.module.css';
 export const metadata: Metadata = {
     title: 'Gemini API Gateway | Stable Access & Load Balancing',
     description: 'Gemini API access with up to 70% lower cost, global payments, and a load-balancing gateway designed to reduce 429 rate-limit errors and keep throughput stable.',
+    alternates: {
+        canonical: '/en',
+    },
 };
 
 const codeExample = `import { GoogleGenAI } from "@google/genai";
