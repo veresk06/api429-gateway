@@ -1,0 +1,112 @@
+.formCard {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem;
+    background: rgba(13, 15, 20, 0.6);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.formGroup label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.formGroup input[type="text"],
+.formGroup input[type="email"],
+.formGroup select,
+.formGroup textarea {
+    background: var(--surface);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+    outline: none;
+    border-color: var(--brand-primary);
+    background: var(--surface-hover);
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.formGroup textarea {
+    resize: vertical;
+}
+
+.checkboxGroup {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.checkboxGroup input {
+    margin-top: 0.25rem;
+    accent-color: var(--brand-primary);
+}
+
+.error {
+    padding: 1rem;
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--error);
+    border-radius: 8px;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    font-size: 0.9rem;
+}
+
+.success {
+    text-align: center;
+    padding: 5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.successIcon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    border: 2px solid var(--success);
+}
+
+@media (max-width: 640px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .formCard {
+        padding: 2rem 1.5rem;
+    }
+}

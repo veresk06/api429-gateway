@@ -1,0 +1,73 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+/* Variants */
+.primary {
+    background: var(--brand-gradient);
+    color: #fff;
+    box-shadow: var(--shadow-sm);
+}
+
+.primary:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-1px);
+}
+
+.secondary {
+    background: var(--surface);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.secondary:hover {
+    background: var(--surface-hover);
+    border-color: var(--border-highlight);
+}
+
+.outline {
+    background: transparent;
+    color: var(--brand-secondary);
+    border: 1px solid var(--brand-secondary);
+}
+
+.outline:hover {
+    background: rgba(139, 92, 246, 0.1);
+}
+
+/* Sizes */
+.sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+.md {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+}
+
+.lg {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    border-radius: 12px;
+}
