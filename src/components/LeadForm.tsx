@@ -4,7 +4,8 @@ import React, { useState } from 'react';
 import styles from './LeadForm.module.css';
 import { Button } from './Button';
 
-export function LeadForm() {
+export function LeadForm({ lang = 'ru' }: { lang?: 'ru' | 'en' }) {
+    const isEn = lang === 'en';
     const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
     const [formData, setFormData] = useState({
         name: '',
@@ -12,7 +13,7 @@ export function LeadForm() {
         telegram: '',
         role: 'dev',
         volume: '10-100M',
-        payment: 'RUB',
+        payment: 'USDT',
         comment: '',
         consent: false
     });
@@ -54,26 +55,26 @@ export function LeadForm() {
         return (
             <div className={`${styles.formCard} ${styles.success} glass-panel`}>
                 <div className={styles.successIcon}>✓</div>
-                <h3 className="text-2xl font-bold mb-4">Заявка принята!</h3>
+                <h3 className="text-2xl font-bold mb-4">{isEn ? 'Request Submitted!' : 'Заявка принята!'}</h3>
                 <p className="text-secondary mb-8">
-                    Мы свяжемся с вами в течение 24 часов в Telegram или по email для выдачи тестового ключа.
+                    {isEn ? 'We will contact you within 24 hours via Telegram or email to issue a test key.' : 'Мы свяжемся с вами в течение 24 часов в Telegram или по email для выдачи тестового ключа.'}
                 </p>
-                <Button variant="secondary" onClick={() => setStatus('idle')}>Отправить еще</Button>
+                <Button variant="secondary" onClick={() => setStatus('idle')}>{isEn ? 'Submit Another' : 'Отправить еще'}</Button>
             </div>
         );
     }
 
     return (
         <div className={`${styles.formCard} glass-panel`} id="connect">
-            <h2 className="text-3xl font-bold mb-2 text-center">Оставить заявку</h2>
+            <h2 className="text-3xl font-bold mb-2 text-center">{isEn ? 'Request Access' : 'Оставить заявку'}</h2>
             <p className="text-secondary text-center mb-8">
-                Получите тестовый доступ, API ключ и индивидуальные условия
+                {isEn ? 'Get test access, an API key, and individual conditions' : 'Получите тестовый доступ, API ключ и индивидуальные условия'}
             </p>
 
             <form className={styles.form} onSubmit={handleSubmit}>
                 <div className={styles.grid}>
                     <div className={styles.formGroup}>
-                        <label htmlFor="name">Имя / Компания *</label>
+                        <label htmlFor="name">{isEn ? 'Name / Company *' : 'Имя / Компания *'}</label>
                         <input
                             required
                             type="text"
@@ -81,7 +82,7 @@ export function LeadForm() {
                             name="name"
                             value={formData.name}
                             onChange={handleChange}
-                            placeholder="Иван, Tech Corp"
+                            placeholder={isEn ? "John, Tech Corp" : "Иван, Tech Corp"}
                         />
                     </div>
 
@@ -94,13 +95,13 @@ export function LeadForm() {
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
-                            placeholder="ivan@example.com"
+                            placeholder="hello@example.com"
                         />
                     </div>
                 </div>
 
                 <div className={styles.formGroup}>
-                    <label htmlFor="telegram">Telegram (опционально, но быстрее)</label>
+                    <label htmlFor="telegram">{isEn ? 'Telegram (optional, but faster)' : 'Telegram (опционально, но быстрее)'}</label>
                     <input
                         type="text"
                         id="telegram"
@@ -113,46 +114,46 @@ export function LeadForm() {
 
                 <div className={styles.grid}>
                     <div className={styles.formGroup}>
-                        <label htmlFor="role">Роль</label>
+                        <label htmlFor="role">{isEn ? 'Role' : 'Роль'}</label>
                         <select id="role" name="role" value={formData.role} onChange={handleChange}>
-                            <option value="dev">Разработчик</option>
+                            <option value="dev">{isEn ? 'Developer' : 'Разработчик'}</option>
                             <option value="pm">Product Manager</option>
                             <option value="founder">Founder / C-level</option>
-                            <option value="agency">Агентство</option>
-                            <option value="other">Другое</option>
+                            <option value="agency">{isEn ? 'Agency' : 'Агентство'}</option>
+                            <option value="other">{isEn ? 'Other' : 'Другое'}</option>
                         </select>
                     </div>
 
                     <div className={styles.formGroup}>
-                        <label htmlFor="volume">Объем в месяц (Токенов)</label>
+                        <label htmlFor="volume">{isEn ? 'Monthly Volume (Tokens)' : 'Объем в месяц (Токенов)'}</label>
                         <select id="volume" name="volume" value={formData.volume} onChange={handleChange}>
-                            <option value="<10M">До 10M</option>
+                            <option value="<10M">{isEn ? 'Under 10M' : 'До 10M'}</option>
                             <option value="10-100M">10M - 100M</option>
                             <option value="100M-1B">100M - 1B</option>
-                            <option value=">1B">Более 1B</option>
+                            <option value=">1B">{isEn ? 'Over 1B' : 'Более 1B'}</option>
                         </select>
                     </div>
                 </div>
 
                 <div className={styles.formGroup}>
-                    <label htmlFor="payment">Удобный способ оплаты</label>
+                    <label htmlFor="payment">{isEn ? 'Preferred Payment Method' : 'Удобный способ оплаты'}</label>
                     <select id="payment" name="payment" value={formData.payment} onChange={handleChange}>
-                        <option value="RUB">Карта РФ / Счет</option>
-                        <option value="USDT">Крипта (USDT TRC20/ERC20)</option>
+                        <option value="RUB">{isEn ? 'Invoice / Card' : 'Карта РФ / Счет'}</option>
+                        <option value="USDT">Crypto (USDT TRC20/ERC20)</option>
                         <option value="TON">TON</option>
-                        <option value="other">Другое</option>
+                        <option value="other">{isEn ? 'Other' : 'Другое'}</option>
                     </select>
                 </div>
 
                 <div className={styles.formGroup}>
-                    <label htmlFor="comment">Комментарий (опционально)</label>
+                    <label htmlFor="comment">{isEn ? 'Comments (optional)' : 'Комментарий (опционально)'}</label>
                     <textarea
                         id="comment"
                         name="comment"
                         rows={3}
                         value={formData.comment}
                         onChange={handleChange}
-                        placeholder="Особые требования, текущие боли..."
+                        placeholder={isEn ? "Special requirements, current pain points..." : "Особые требования, текущие боли..."}
                     />
                 </div>
 
@@ -166,13 +167,14 @@ export function LeadForm() {
                         onChange={handleChange}
                     />
                     <label htmlFor="consent" className="text-sm text-secondary">
-                        Я согласен на обработку персональных данных согласно <a href="/legal/privacy" className="text-primary hover:underline">Политике конфиденциальности</a>
+                        {isEn ? 'I agree to the processing of personal data according to the ' : 'Я согласен на обработку персональных данных согласно '}
+                        <a href="/legal/privacy" className="text-primary hover:underline">{isEn ? 'Privacy Policy' : 'Политике конфиденциальности'}</a>
                     </label>
                 </div>
 
                 {status === 'error' && (
                     <div className={styles.error}>
-                        Произошла ошибка при отправке. Пожалуйста, попробуйте позже или напишите нам.
+                        {isEn ? 'An error occurred during submission. Please try again later or contact us.' : 'Произошла ошибка при отправке. Пожалуйста, попробуйте позже или напишите нам.'}
                     </div>
                 )}
 
@@ -183,7 +185,7 @@ export function LeadForm() {
                     fullWidth
                     disabled={status === 'loading' || !formData.consent}
                 >
-                    {status === 'loading' ? 'Отправка...' : 'Получить доступ'}
+                    {status === 'loading' ? (isEn ? 'Submitting...' : 'Отправка...') : (isEn ? 'Request Access' : 'Получить доступ')}
                 </Button>
             </form>
         </div>

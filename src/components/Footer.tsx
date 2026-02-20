@@ -2,37 +2,38 @@ import React from 'react';
 import Link from 'next/link';
 import styles from './Footer.module.css';
 
-export function Footer() {
+export function Footer({ lang = 'ru' }: { lang?: 'ru' | 'en' }) {
+    const isEn = lang === 'en';
+
     return (
         <footer className={styles.footer}>
             <div className={`container ${styles.container}`}>
                 <div className={styles.brand}>
-                    <Link href="/" className={styles.logo}>
+                    <Link href={isEn ? '/en' : '/'} className={styles.logo}>
                         <span className="text-gradient font-bold text-xl">GeminiGW</span>
                     </Link>
                     <p className={styles.desc}>
-                        Надежный платежный и технический слой для работы с Gemini API.
+                        {isEn ? 'Reliable payment and technical layer for Google Gemini API.' : 'Надежный платежный и технический слой для работы с Gemini API.'}
                     </p>
                 </div>
 
                 <div className={styles.links}>
                     <div className={styles.column}>
-                        <h4 className={styles.colTitle}>Продукт</h4>
-                        <Link href="/pricing" className={styles.link}>Тарифы</Link>
-                        <Link href="/docs" className={styles.link}>API Документация</Link>
-                        <Link href="/status" className={styles.link}>Статус сервиса</Link>
+                        <h4 className={styles.colTitle}>{isEn ? 'Product' : 'Продукт'}</h4>
+                        <Link href="/pricing" className={styles.link}>{isEn ? 'Pricing' : 'Тарифы'}</Link>
+                        <Link href="/docs" className={styles.link}>{isEn ? 'API Documentation' : 'API Документация'}</Link>
                     </div>
 
                     <div className={styles.column}>
-                        <h4 className={styles.colTitle}>Правовая информация</h4>
-                        <Link href="/legal/terms" className={styles.link}>Условия сервиса</Link>
-                        <Link href="/legal/privacy" className={styles.link}>Политика конфиденциальности</Link>
+                        <h4 className={styles.colTitle}>{isEn ? 'Legal' : 'Правовая информация'}</h4>
+                        <Link href="/legal/terms" className={styles.link}>{isEn ? 'Terms of Service' : 'Условия сервиса'}</Link>
+                        <Link href="/legal/privacy" className={styles.link}>{isEn ? 'Privacy Policy' : 'Политика конфиденциальности'}</Link>
                     </div>
 
                     <div className={styles.column}>
-                        <h4 className={styles.colTitle}>Связь</h4>
+                        <h4 className={styles.colTitle}>{isEn ? 'Contact' : 'Связь'}</h4>
                         <a href="mailto:support@geminigw.example.com" className={styles.link}>support@geminigw.com</a>
-                        <a href="https://t.me/geminigw_support" target="_blank" rel="noopener noreferrer" className={styles.link}>Telegram Поддержка</a>
+                        <a href="https://t.me/geminigw_support" target="_blank" rel="noopener noreferrer" className={styles.link}>{isEn ? 'Telegram Support' : 'Telegram Поддержка'}</a>
                     </div>
                 </div>
             </div>
