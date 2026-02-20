@@ -17,6 +17,20 @@ export const metadata: Metadata = {
     },
 };
 
+const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Gemini API Gateway",
+    "operatingSystem": "Web",
+    "applicationCategory": "DeveloperApplication",
+    "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "USD"
+    },
+    "description": "Gateway and load balancer for Google Gemini API with protection against 429 limits and alternative payment methods."
+};
+
 const codeExample = `import { GoogleGenAI } from "@google/genai";
 
 // 1. Use our endpoint instead of the official one
@@ -55,6 +69,10 @@ const faqItemsEN = [
 export default function HomeEN() {
     return (
         <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <Header lang="en" />
             <main>
                 {/* Hero Section */}

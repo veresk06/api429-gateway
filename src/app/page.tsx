@@ -49,8 +49,26 @@ const faqItems = [
 ];
 
 export default function Home() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'Gemini API Gateway',
+    operatingSystem: 'Web',
+    applicationCategory: 'DeveloperApplication',
+    offers: {
+      '@type': 'Offer',
+      price: '0.00',
+      priceCurrency: 'USD',
+    },
+    description: 'Gateway and load balancer for Google Gemini API with protection against 429 limits and alternative payment methods.'
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Header />
       <main>
         {/* Hero Section */}
