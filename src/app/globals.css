@@ -348,16 +348,46 @@ button {
 
 /* Responsive basics */
 @media (max-width: 768px) {
+  .text-3xl {
+    font-size: 1.5rem;
+  }
+
+  .text-4xl {
+    font-size: 1.875rem;
+  }
+
   .text-5xl {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 
   .text-6xl {
-    font-size: 3rem;
+    font-size: 2.75rem;
   }
 
   .text-7xl {
-    font-size: 3.5rem;
+    font-size: 3rem;
+  }
+
+  .py-16 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .py-24 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .mt-24 {
+    margin-top: 3rem;
+  }
+
+  .mb-16 {
+    margin-bottom: 2rem;
+  }
+
+  .mb-24 {
+    margin-bottom: 3rem;
   }
 
   .container {

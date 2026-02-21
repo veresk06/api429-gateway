@@ -221,10 +221,35 @@
 
     .calcGrid {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 2rem;
     }
 
     .calculatorCard {
-        padding: 2rem 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .pricingCard {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .resultSection {
+        padding: 1.5rem 1rem;
+    }
+
+    .tableContainer {
+        border-radius: 8px;
+        margin-left: -16px;
+        margin-right: -16px;
+        width: calc(100% + 32px);
+        border-left: none;
+        border-right: none;
+    }
+
+    .pricingTable th,
+    .pricingTable td {
+        padding: 1rem;
+        font-size: 0.85rem;
     }
 }
