@@ -9,7 +9,7 @@ export default function Privacy() {
                 <h1 className="text-4xl font-bold mb-8">Политика конфиденциальности (MVP)</h1>
                 <div className="text-secondary leading-relaxed flex flex-col gap-6">
                     <p>
-                        В GeminiGW мы серьезно относимся к конфиденциальности ваших данных. Наша цель — обеспечить максимальную безопасность и прозрачность.
+                        В api429.com мы серьезно относимся к конфиденциальности ваших данных. Наша цель — обеспечить максимальную безопасность и прозрачность.
                     </p>
 
                     <h2 className="text-2xl font-bold text-primary mt-4">1. Сбор данных (Zero Data Retention)</h2>

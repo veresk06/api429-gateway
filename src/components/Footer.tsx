@@ -10,7 +10,7 @@ export function Footer({ lang = 'ru' }: { lang?: 'ru' | 'en' }) {
             <div className={`container ${styles.container}`}>
                 <div className={styles.brand}>
                     <Link href={isEn ? '/en' : '/'} className={styles.logo}>
-                        <span className="text-gradient font-bold text-xl">GeminiGW</span>
+                        <span className="text-gradient font-bold text-xl">api429.com</span>
                     </Link>
                     <p className={styles.desc}>
                         {isEn ? 'Reliable payment and technical layer for Google Gemini API.' : 'Надежный платежный и технический слой для работы с Gemini API.'}
@@ -22,6 +22,7 @@ export function Footer({ lang = 'ru' }: { lang?: 'ru' | 'en' }) {
                         <h4 className={styles.colTitle}>{isEn ? 'Product' : 'Продукт'}</h4>
                         <Link href="/pricing" className={styles.link}>{isEn ? 'Pricing' : 'Тарифы'}</Link>
                         <Link href="/docs" className={styles.link}>{isEn ? 'API Documentation' : 'API Документация'}</Link>
+                        <Link href={isEn ? "/en/faq" : "/faq"} className={styles.link}>FAQ</Link>
                     </div>
 
                     <div className={styles.column}>
@@ -32,13 +33,13 @@ export function Footer({ lang = 'ru' }: { lang?: 'ru' | 'en' }) {
 
                     <div className={styles.column}>
                         <h4 className={styles.colTitle}>{isEn ? 'Contact' : 'Связь'}</h4>
-                        <a href="mailto:support@geminigw.example.com" className={styles.link}>support@geminigw.com</a>
-                        <a href="https://t.me/geminigw_support" target="_blank" rel="noopener noreferrer" className={styles.link}>{isEn ? 'Telegram Support' : 'Telegram Поддержка'}</a>
+                        <a href="mailto:support@api429.example.com" className={styles.link}>support@api429.com</a>
+                        <a href="https://t.me/api429_support" target="_blank" rel="noopener noreferrer" className={styles.link}>{isEn ? 'Telegram Support' : 'Telegram Поддержка'}</a>
                     </div>
                 </div>
             </div>
             <div className={`container ${styles.bottom}`}>
-                <p>© {new Date().getFullYear()} GeminiGW. All rights reserved.</p>
+                <p>© {new Date().getFullYear()} api429.com. All rights reserved.</p>
                 <p className={styles.disclaimer}>Not affiliated with Google or Gemini.</p>
             </div>
         </footer>

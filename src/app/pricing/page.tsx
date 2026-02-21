@@ -10,8 +10,8 @@ import styles from './page.module.css';
 
 export default function Pricing() {
     const [tokens, setTokens] = useState<number>(50); // in millions
-    const googlePricePerM = 0.50; // Gemini Flash baseline
-    const ourPricePerM = 0.15; // Our discounted price
+    const googlePricePerM = 0.075; // Gemini Flash baseline
+    const ourPricePerM = 0.035; // Our discounted price
 
     const estimatedGoogle = tokens * googlePricePerM;
     const estimatedUs = tokens * ourPricePerM;
@@ -110,7 +110,7 @@ export default function Pricing() {
                                     <span>1B+</span>
                                 </div>
                                 <div className="mt-6 text-sm text-secondary">
-                                    * Расчет приведен для модели Gemini 1.5 Flash. Для других моделей (Pro) пропорция экономии сохраняется.
+                                    * Расчет приведен для модели Gemini 3 Flash. Для других моделей (Pro) пропорция экономии сохраняется.
                                 </div>
                             </div>
 
@@ -120,7 +120,7 @@ export default function Pricing() {
                                     <span className="text-xl line-through text-secondary">${estimatedGoogle.toFixed(2)}</span>
                                 </div>
                                 <div className={`${styles.resultRow} ${styles.highlight}`}>
-                                    <span>Через GeminiGW:</span>
+                                    <span>Через api429.com:</span>
                                     <span className="text-3xl font-bold text-primary">${estimatedUs.toFixed(2)}</span>
                                 </div>
                                 <div className={styles.savingsBox}>
@@ -129,6 +129,198 @@ export default function Pricing() {
                             </div>
                         </div>
                     </Card>
+                </section>
+
+                {/* Detailed Pricing Tables */}
+                <section className={styles.tableSection}>
+                    <h2 className="text-3xl font-bold mb-8 text-center">Подробный прайс на модели API</h2>
+
+                    {/* Video Generation Table */}
+                    <h3 className="text-xl font-bold mb-4">Генерация Видео (Veo 3.1)</h3>
+                    <p className="text-secondary mb-4 text-sm">Тарификация посекундная. Официальный стандарт рынка.</p>
+                    <div className={styles.tableContainer}>
+                        <table className={styles.pricingTable}>
+                            <thead>
+                                <tr>
+                                    <th>Модель (Алиас)</th>
+                                    <th>Описание</th>
+                                    <th>Цена Google (за 1 сек.)</th>
+                                    <th>Наша цена</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <strong>Veo 3.1 Fast</strong>
+                                        <span className={styles.tableAlias}>veo-3.1-fast</span>
+                                    </td>
+                                    <td>Быстрая генерация видео (без аудио)</td>
+                                    <td className={styles.tablePriceOld}>$0.10</td>
+                                    <td>
+                                        <span className={styles.tablePriceNew}>$0.03</span>
+                                        <span className={styles.tableBadge}>Скидка 70%</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Veo 3.1 Fast + Audio</strong>
+                                        <span className={styles.tableAlias}>veo-3.1-fast-audio</span>
+                                    </td>
+                                    <td>Быстрая генерация видео (с аудио)</td>
+                                    <td className={styles.tablePriceOld}>$0.15</td>
+                                    <td>
+                                        <span className={styles.tablePriceNew}>$0.045</span>
+                                        <span className={styles.tableBadge}>Скидка 70%</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Veo 3.1 Standard</strong>
+                                        <span className={styles.tableAlias}>veo-3.1-standard</span>
+                                    </td>
+                                    <td>Максимальное качество (без аудио)</td>
+                                    <td className={styles.tablePriceOld}>$0.40</td>
+                                    <td>
+                                        <span className={styles.tablePriceNew}>$0.12</span>
+                                        <span className={styles.tableBadge}>Скидка 70%</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Veo 3.1 Standard + Audio</strong>
+                                        <span className={styles.tableAlias}>veo-3.1-standard-audio</span>
+                                    </td>
+                                    <td>Макс. качество + звук и эффекты</td>
+                                    <td className={styles.tablePriceOld}>$0.75</td>
+                                    <td>
+                                        <span className={styles.tablePriceNew}>$0.225</span>
+                                        <span className={styles.tableBadge}>Скидка 70%</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    {/* Image Generation Table */}
+                    <h3 className="text-xl font-bold mb-4 mt-12">Генерация Изображений (Nano Banana)</h3>
+                    <p className="text-secondary mb-4 text-sm">Единая фиксированная цена на любое разрешение. Выгоднее Google до 79%.</p>
+                    <div className={styles.tableContainer}>
+                        <table className={styles.pricingTable}>
+                            <thead>
+                                <tr>
+                                    <th>Модель (Алиас)</th>
+                                    <th>Описание</th>
+                                    <th>Цена Google (за 1 шт.)</th>
+                                    <th>Наша цена</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <strong>Nano Banana</strong>
+                                        <span className={styles.tableAlias}>gemini-2.5-flash-image</span>
+                                    </td>
+                                    <td>Быстрая генерация (аналог Imagen 3 Fast)</td>
+                                    <td className={styles.tablePriceOld}>$0.030</td>
+                                    <td>
+                                        <span className={styles.tablePriceNew}>$0.009</span>
+                                        <span className={styles.tableBadge}>Скидка 70%</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Nano Banana Pro (1K/2K)</strong>
+                                        <span className={styles.tableAlias}>gemini-3-pro-image-preview</span>
+                                    </td>
+                                    <td>Высокое качество, сложные сцены, 1K-2K</td>
+                                    <td className={styles.tablePriceOld}>$0.134</td>
+                                    <td>
+                                        <span className={styles.tablePriceNew}>$0.04</span>
+                                        <span className={styles.tableBadge}>Скидка 70%</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Nano Banana Pro (4K)</strong>
+                                        <span className={styles.tableAlias}>gemini-3-pro-image-preview-4k</span>
+                                    </td>
+                                    <td>Ультра-высокое качество, 4K разрешение</td>
+                                    <td className={styles.tablePriceOld}>$0.240</td>
+                                    <td>
+                                        <span className={styles.tablePriceNew}>$0.050</span>
+                                        <span className={styles.tableBadge}>Скидка 79%</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    {/* LLM Table */}
+                    <h3 className="text-xl font-bold mb-4 mt-12">Мультимодальные LLM (Текст, Чат, Vision)</h3>
+                    <p className="text-secondary mb-4 text-sm">Цена за 1 миллион (1М) токенов.</p>
+                    <div className={styles.tableContainer}>
+                        <table className={styles.pricingTable}>
+                            <thead>
+                                <tr>
+                                    <th>Модель (Алиас)</th>
+                                    <th>Тип токенов</th>
+                                    <th>Цена Google (за 1М)</th>
+                                    <th>Наша цена (за 1М)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <strong>Gemini 3.1 Pro Preview</strong>
+                                        <span className={styles.tableAlias}>gemini-3.1-pro-preview</span>
+                                    </td>
+                                    <td>Входящие / Исходящие</td>
+                                    <td className={styles.tablePriceOld}>$2.00 / $12.00</td>
+                                    <td>
+                                        <span className={styles.tablePriceNew}>$0.60 / $3.60</span>
+                                        <span className={styles.tableBadge}>Скидка 70%</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Gemini 3.0 Flash</strong>
+                                        <span className={styles.tableAlias}>gemini-3.0-flash</span>
+                                    </td>
+                                    <td>Входящие / Исходящие</td>
+                                    <td className={styles.tablePriceOld}>$0.50 / $3.00</td>
+                                    <td>
+                                        <span className={styles.tablePriceNew}>$0.15 / $0.90</span>
+                                        <span className={styles.tableBadge}>Скидка 70%</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Gemini 2.5 Pro</strong>
+                                        <span className={styles.tableAlias}>gemini-2.5-pro</span>
+                                    </td>
+                                    <td>Входящие / Исходящие</td>
+                                    <td className={styles.tablePriceOld}>$1.25 / $10.00</td>
+                                    <td>
+                                        <span className={styles.tablePriceNew}>$0.37 / $3.00</span>
+                                        <span className={styles.tableBadge}>Скидка 70%</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Gemini 2.5 Flash</strong>
+                                        <span className={styles.tableAlias}>gemini-2.5-flash</span>
+                                    </td>
+                                    <td>Входящие / Исходящие</td>
+                                    <td className={styles.tablePriceOld}>$0.30 / $2.50</td>
+                                    <td>
+                                        <span className={styles.tablePriceNew}>$0.09 / $0.75</span>
+                                        <span className={styles.tableBadge}>Скидка 70%</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
                 </section>
             </main>
             <Footer />

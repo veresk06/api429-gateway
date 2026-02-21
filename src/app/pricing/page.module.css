@@ -55,8 +55,6 @@
 }
 
 .calculatorCard {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 3rem;
 }
 
@@ -74,6 +72,7 @@
 
 .slider {
     -webkit-appearance: none;
+    appearance: none;
     width: 100%;
     height: 8px;
     border-radius: 4px;
@@ -98,7 +97,8 @@
 }
 
 .resultSection {
-    background: rgba(13, 15, 20, 0.5);
+    background: var(--surface-hover);
+    border: 1px solid var(--border-color);
     border-radius: 16px;
     padding: 2rem;
     display: flex;
@@ -121,11 +121,92 @@
 .savingsBox {
     margin-top: 1rem;
     background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
     color: var(--success);
     padding: 1rem;
     border-radius: 8px;
     text-align: center;
     font-size: 1.1rem;
+}
+
+.tableSection {
+    margin-top: 5rem;
+}
+
+.tableContainer {
+    width: 100%;
+    overflow-x: auto;
+    background: var(--surface);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    margin-bottom: 3rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.pricingTable {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.pricingTable th,
+.pricingTable td {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.pricingTable th {
+    background: var(--bg-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.pricingTable td {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+.pricingTable tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.pricingTable tbody tr:hover {
+    background: var(--surface-hover);
+}
+
+.tableAlias {
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    display: block;
+    margin-top: 0.25rem;
+}
+
+.tablePriceOld {
+    color: var(--text-secondary);
+    text-decoration: line-through;
+    opacity: 0.8;
+}
+
+.tablePriceNew {
+    color: var(--brand-primary);
+    font-weight: bold;
+}
+
+.tableBadge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+    margin-left: 8px;
+    border: 1px solid rgba(16, 185, 129, 0.2);
 }
 
 @media (max-width: 900px) {

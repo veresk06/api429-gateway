@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import styles from './Header.module.css';
 import { Button } from './Button';
+import { ThemeToggle } from './ThemeToggle';
 
 export function Header({ lang = 'ru' }: { lang?: 'ru' | 'en' }) {
     const isEn = lang === 'en';
@@ -11,22 +12,23 @@ export function Header({ lang = 'ru' }: { lang?: 'ru' | 'en' }) {
         <header className={`${styles.header} glass-panel`}>
             <div className={`container ${styles.container}`}>
                 <Link href={prefix || '/'} className={styles.logo}>
-                    <span className="text-gradient font-bold text-2xl">Gemini<span className="text-primary">GW</span></span>
+                    <span className="text-gradient font-bold text-2xl">api429.com</span>
                 </Link>
 
                 <nav className={styles.nav}>
                     <Link href={`${prefix}#benefits`} className={styles.link}>{isEn ? 'Features' : 'Преимущества'}</Link>
                     <Link href="/pricing" className={styles.link}>{isEn ? 'Pricing' : 'Тарифы'}</Link>
                     <Link href="/docs" className={styles.link}>{isEn ? 'Docs' : 'Документация'}</Link>
-                    <Link href={`${prefix}#faq`} className={styles.link}>FAQ</Link>
+                    <Link href={`${prefix}/faq`} className={styles.link}>FAQ</Link>
                 </nav>
 
                 <div className={styles.actions}>
-                    <div className="mr-8 flex gap-2 text-sm font-semibold">
+                    <div className={styles.langToggle}>
                         <Link href="/" className={!isEn ? "text-primary" : "text-secondary"}>RU</Link>
                         <span className="text-secondary">/</span>
                         <Link href="/en" className={isEn ? "text-primary" : "text-secondary"}>EN</Link>
                     </div>
+                    <ThemeToggle />
                     <Link href={`${prefix}#connect`}>
                         <Button variant="primary" size="sm">{isEn ? 'Get Access' : 'Подключиться'}</Button>
                     </Link>

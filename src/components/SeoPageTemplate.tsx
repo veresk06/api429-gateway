@@ -33,7 +33,7 @@ export function SeoPageTemplate({ h1, subtitle, problem, solution, benefits, cta
                         </div>
 
                         <div className="glass-panel p-8 border-l-4 border-l-success">
-                            <h2 className="text-2xl font-bold text-success mb-4">Решение от GeminiGW</h2>
+                            <h2 className="text-2xl font-bold text-success mb-4">Решение от api429.com</h2>
                             <div className="text-secondary leading-relaxed" dangerouslySetInnerHTML={{ __html: solution }} />
                         </div>
                     </div>

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://api429.com"),
   title: {
     default: "Gemini API Gateway | Stable Access & Load Balancing",
-    template: "%s | GeminiGW"
+    template: "%s | api429.com"
   },
   description: "Gemini API access with up to 70% lower cost, RU card & crypto payments, and a load-balancing gateway designed to reduce 429 rate-limit errors and keep throughput stable.",
   keywords: ["Gemini API", "AI Gateway", "Russian Payments", "Crypto Payments", "LLM Routing", "AI rate limit 429"],
@@ -24,15 +24,19 @@ export const viewport: Viewport = {
   maximumScale: 1,
 };
 
+import { Providers } from "./providers";
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru">
-      <body>
-        {children}
+    <html lang="ru" suppressHydrationWarning>
+      <body suppressHydrationWarning>
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );

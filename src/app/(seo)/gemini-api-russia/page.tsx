@@ -2,7 +2,7 @@ import { SeoPageTemplate } from '@/components/SeoPageTemplate';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Как оплатить и использовать Gemini API из России | GeminiGW',
+    title: 'Как оплатить и использовать Gemini API из России | api429.com',
     description: 'Получите доступ к Gemini API с оплатой российскими картами, USDT или TON. Без сложностей с зарубежными картами и аккаунтами.',
 };
 

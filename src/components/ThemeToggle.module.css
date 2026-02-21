@@ -1,0 +1,16 @@
+.themeToggle {
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    color: var(--text-secondary);
+    background: transparent;
+    cursor: pointer;
+}
+
+.themeToggle:hover {
+    background: var(--surface-hover);
+    color: var(--text-primary);
+}

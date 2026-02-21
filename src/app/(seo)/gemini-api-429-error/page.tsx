@@ -2,7 +2,7 @@ import { SeoPageTemplate } from '@/components/SeoPageTemplate';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Как убрать ошибку 429 Too Many Requests в Gemini API | GeminiGW',
+    title: 'Как убрать ошибку 429 Too Many Requests в Gemini API | api429.com',
     description: 'Решение проблемы 429 Too Many Requests при работе с Google Gemini API. Использование балансировщика, умных очередей и распределения лимитов ключей.',
 };
 

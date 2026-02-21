@@ -7,8 +7,8 @@ export default function Docs() {
     const authExample = `import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({
-  apiKey: "ваш_ключ_geminigw",
-  baseURL: "https://api.geminigw.com/v1"
+  apiKey: "ваш_ключ_api429",
+  baseURL: "https://api.api429.com/v1"
 });`;
 
     return (
@@ -45,7 +45,7 @@ const ai = new GoogleGenAI({
                         Если у вас возникли вопросы при интеграции или вы столкнулись с нестандартными ошибками, пожалуйста, свяжитесь с нами:
                     </p>
                     <div className="mt-4">
-                        <Link href="https://t.me/geminigw_support" className="text-brand-primary hover:underline font-bold">@geminigw_support в Telegram</Link>
+                        <Link href="https://t.me/api429_support" className="text-brand-primary hover:underline font-bold">@api429_support в Telegram</Link>
                     </div>
                 </div>
             </main>
