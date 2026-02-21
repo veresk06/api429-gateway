@@ -215,23 +215,23 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className={styles.modelCard}>
-                <div className="flex flex-1 items-center" style={{ gap: '2.5rem' }}>
-                  <div className={styles.modelLogo} style={{ width: '120px', height: '120px', borderRadius: '24px', overflow: 'hidden', position: 'relative', flexShrink: 0 }}>
+              <div className={styles.modelPromoCard}>
+                <div className={styles.modelPromoHeader}>
+                  <div className={styles.promoLogo}>
                     <Image src="/banana-image.png" alt="Nano Banana" fill style={{ objectFit: 'cover' }} />
                   </div>
-                  <div>
+                  <div className={styles.promoContent}>
                     <div className="flex items-center gap-3 mb-1">
                       <h4 className="font-bold text-2xl leading-tight">Nano Banana</h4>
                       <span className={styles.badge} style={{ borderColor: '#fbbc05', color: '#fbbc05', background: 'rgba(251, 188, 5, 0.1)' }}>New Content</span>
                     </div>
-                    <div className="text-base text-secondary">Превосходная генерация изображений с полным контролем над персонажами и деталями.</div>
+                    <p className="text-base text-secondary">Превосходная генерация изображений с полным контролем над персонажами и деталями.</p>
                   </div>
                 </div>
 
-                <div style={{ width: '1px', height: '80px', background: 'var(--border-color)', opacity: '0.5' }} className="hidden md:block"></div>
+                <div className={styles.promoDivider}></div>
 
-                <div style={{ minWidth: '240px' }}>
+                <div className={styles.promoPrice}>
                   <div className="flex justify-between items-center py-3 border-b border-[var(--border-color)]">
                     <span className="text-sm text-secondary">Цена Google:</span>
                     <span className="text-sm font-medium line-through text-secondary opacity-70">$0.04 / img</span>
@@ -242,6 +242,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+
             </div>
 
             <div className="text-center mt-12">
